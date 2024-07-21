@@ -5,7 +5,6 @@ import com.banking.banking.entity.Account;
 import com.banking.banking.mapper.AccountMapper;
 import com.banking.banking.repository.AccountRepository;
 import com.banking.banking.service.AccountService;
-import org.springframework.data.domain.Range;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
