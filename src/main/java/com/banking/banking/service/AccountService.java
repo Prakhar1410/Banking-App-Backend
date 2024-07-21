@@ -1,6 +1,7 @@
 package com.banking.banking.service;
 
 import com.banking.banking.dto.AccountDto;
+import org.springframework.data.domain.Range;
 
 import java.util.List;
 
@@ -15,4 +16,8 @@ public interface AccountService {
     AccountDto withdraw(Long id, double amount);
 
     List<AccountDto> getAllAccounts();
+
+    void deleteAccount(Long id);
+
+    void deleteAccountsInRange(Long minValue, Long maxValue);
 }
