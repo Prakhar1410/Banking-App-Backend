@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api/accounts")
@@ -62,15 +63,19 @@ public class AccountController {
 
     // Delete Account Rest API
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteAccount(@PathVariable Long id){
+    public ResponseEntity<Map<String, String>> deleteAccount(@PathVariable Long id) {
         accountService.deleteAccount(id);
-        return ResponseEntity.ok("Account is deleted successfully!");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Account is deleted successfully!");
+        return ResponseEntity.ok(response);
     }
 
     // Delete Accounts within Given Range Rest API
     @DeleteMapping("/deleteRange/{minValue}/{maxValue}")
-    public ResponseEntity<String> deleteAccountsInRange(@PathVariable Long minValue, @PathVariable Long maxValue){
+    public ResponseEntity<Map<String, String>> deleteAccountsInRange(@PathVariable Long minValue, @PathVariable Long maxValue){
         accountService.deleteAccountsInRange(minValue, maxValue);
-        return ResponseEntity.ok("Accounts deleted within range" + " " + minValue + " " + "to" + " " + maxValue);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Accounts deleted within range" + " " + minValue + " " + "to" + " " + maxValue);
+        return ResponseEntity.ok(response);
     }
 }
